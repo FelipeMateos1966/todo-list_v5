@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#f4f4f9">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h2>Listas</h2>
+        <nav>
+            <ul>
+                <li class="active" data-list="hoy">Hoy</li>
+                <li data-list="inbox">Bandeja de Entrada</li>
+                <li data-list="trabajo">#trabajo</li>
+                <li data-list="personal">#personal</li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <header>
+            <button class="menu-btn">&#9776;</button>
+            <h1>Hoy</h1>
+        </header>
+
+        <div id="task-container">
+            <ul id="task-list"></ul>
+            
+            <h2 id="completed-title" class="hidden">Completadas</h2>
+            <ul id="completed-list"></ul>
+        </div>
+
+        <form id="add-task-form">
+            <input type="text" id="task-input" placeholder="Añadir una tarea... ej. Reunión mañana 10am #trabajo" autocomplete="off">
+            <button type="submit">+</button>
+        </form>
+    </main>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => console.log('Service Worker registrado con éxito:', registration))
+            .catch(error => console.log('Error al registrar Service Worker:', error));
+        });
+      }
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
