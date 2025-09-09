@@ -1,4 +1,4 @@
-const CACHE_NAME = 'momentum-cache-v1';
+const CACHE_NAME = 'momentum-cache-v2';
 const urlsToCache = [
   './',
   './index.html',
@@ -48,3 +48,4 @@ self.addEventListener('activate', event => {
   );
 
 });
+
